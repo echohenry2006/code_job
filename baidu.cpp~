@@ -1,0 +1,35 @@
+#include<iostream>
+
+using namespace std;
+
+long double sol[201]={0};
+
+int N;
+
+int main(int argc , char** argv)
+{
+    sol[0]=1;
+    sol[1]=1;
+    sol[2]=2;
+    while(cin>>N)
+    {
+        int i;
+		if(N==0){
+			cout<<endl;
+			break;
+		}
+        for (i =3 ;i<=N; i++)
+        {
+            int mid= i/2+1;
+            int l = mid-1; 
+            int r = i - mid; 
+            sol[i]=sol[l]*sol[r]+sol[l-1]*sol[r]+sol[l]*sol[r-1];
+        }
+
+        cout<<setiosflags(ios::fixed)<<setprecision(0)<<sol[N]<<endl;
+    }
+
+    return 0;
+
+
+}

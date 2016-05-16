@@ -1,0 +1,46 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BigNum	baidu.cpp	/^	BigNum(){ len = 1;memset(a,0,sizeof(a)); }   \/\/构造函数$/;"	f	class:BigNum
+BigNum	baidu.cpp	/^BigNum::BigNum(const BigNum & T) : len(T.len)  \/\/拷贝构造函数$/;"	f	class:BigNum
+BigNum	baidu.cpp	/^BigNum::BigNum(const char*s)     \/\/将一个字符串类型的变量转化为大数$/;"	f	class:BigNum
+BigNum	baidu.cpp	/^BigNum::BigNum(const int b)     \/\/将一个int类型的变量转化为大数$/;"	f	class:BigNum
+BigNum	baidu.cpp	/^class BigNum$/;"	c	file:
+DLEN	baidu.cpp	16;"	d	file:
+MAXN	baidu.cpp	14;"	d	file:
+MAXSIZE	baidu.cpp	15;"	d	file:
+N	baidu.cpp	/^int N;$/;"	v
+Solution	Min_Dep_BTree.cpp	/^class Solution {$/;"	c	file:
+Solution	SurroundedRegions.cpp	/^class Solution{$/;"	c	file:
+Solution	leetcode.cpp	/^class Solution{$/;"	c	file:
+Solution	reversevowel.cpp	/^class Solution{$/;"	c	file:
+TreeNode	Min_Dep_BTree.cpp	/^  TreeNode(int x) : val(x), left(NULL), right(NULL) {}$/;"	f	struct:TreeNode
+TreeNode	Min_Dep_BTree.cpp	/^struct TreeNode {$/;"	s	file:
+a	baidu.cpp	/^	int a[500];    \/\/可以控制大数的位数 $/;"	m	class:BigNum	file:
+left	Min_Dep_BTree.cpp	/^  TreeNode *left;$/;"	m	struct:TreeNode	file:
+len	baidu.cpp	/^	int len;       \/\/大数长度$/;"	m	class:BigNum	file:
+main	Min_Dep_BTree.cpp	/^int main(int argc , char** argv)$/;"	f
+main	SurroundedRegions.cpp	/^int main(int argc , char** argv)$/;"	f
+main	baidu.cpp	/^int main(int argc , char** argv)$/;"	f
+main	leetcode.cpp	/^int main(int argc , char** argv)$/;"	f
+main	reversevowel.cpp	/^int main(int argc , char** argv)$/;"	f
+minDepth	Min_Dep_BTree.cpp	/^    int minDepth(TreeNode* root) {$/;"	f	class:Solution
+operator %	baidu.cpp	/^int BigNum::operator %(const int & b) const    \/\/大数对一个int类型的变量进行取模运算    $/;"	f	class:BigNum
+operator *	baidu.cpp	/^BigNum BigNum::operator*(const BigNum & T) const   \/\/两个大数之间的相乘运算 $/;"	f	class:BigNum
+operator +	baidu.cpp	/^BigNum BigNum::operator+(const BigNum & T) const   \/\/两个大数之间的相加运算$/;"	f	class:BigNum
+operator -	baidu.cpp	/^BigNum BigNum::operator-(const BigNum & T) const   \/\/两个大数之间的相减运算 $/;"	f	class:BigNum
+operator /	baidu.cpp	/^BigNum BigNum::operator\/(const int & b) const   \/\/大数对一个整数进行相除运算$/;"	f	class:BigNum
+operator <<	baidu.cpp	/^ostream& operator<<(ostream& out,  BigNum& b)   \/\/重载输出运算符$/;"	f
+operator =	baidu.cpp	/^BigNum & BigNum::operator=(const BigNum & n)   \/\/重载赋值运算符，大数之间进行赋值运算$/;"	f	class:BigNum
+operator >	baidu.cpp	/^bool BigNum::operator >(const int & t) const    \/\/大数和一个int类型的变量的大小比较$/;"	f	class:BigNum
+operator >	baidu.cpp	/^bool BigNum::operator>(const BigNum & T) const   \/\/大数和另一个大数的大小比较$/;"	f	class:BigNum
+operator >>	baidu.cpp	/^istream& operator>>(istream & in,  BigNum & b)   \/\/重载输入运算符$/;"	f
+operator ^	baidu.cpp	/^BigNum BigNum::operator^(const int & n) const    \/\/大数的n次方运算$/;"	f	class:BigNum
+print	baidu.cpp	/^void BigNum::print()    \/\/输出大数$/;"	f	class:BigNum
+reverseVowels	reversevowel.cpp	/^	string reverseVowels(string s){$/;"	f	class:Solution
+right	Min_Dep_BTree.cpp	/^  TreeNode *right;$/;"	m	struct:TreeNode	file:
+sovle	SurroundedRegions.cpp	/^    void sovle(vector<vector<char>>& board){$/;"	f	class:Solution
+val	Min_Dep_BTree.cpp	/^  int val;$/;"	m	struct:TreeNode	file:
