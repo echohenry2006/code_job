@@ -36,7 +36,7 @@ class BTrie{
 	private:
 		BTrieNode* root;
 		int depth;
-		void remove(BTrieNode* p);
+		void remove(BTrieNode* &p);
         vec max_count;
 };
 
@@ -128,18 +128,19 @@ void BTrie::clean(){
 	depth=0;
     max_count.clear();
     root->count=0;
-    root->left=nullptr;
-    root->right=nullptr;
+//    root->left=nullptr;
+//    root->right=nullptr;
     assert(root->left==nullptr);
     assert(root->right==nullptr);
 
 }
 
-void BTrie::remove(BTrieNode* p){
+void BTrie::remove(BTrieNode* &p){
 	if(p!=nullptr){
 			remove(p->left);
 			remove(p->right);
 		delete p;
+        p=nullptr;
 	}
 	return; 
 }
