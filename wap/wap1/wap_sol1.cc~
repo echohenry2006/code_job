@@ -5,7 +5,7 @@
 #include<cmath>
 #include<bitset>
 #include<algorithm>
-#include<./BTrie.cc>
+#include<../BTrie.cc>
 typedef std::vector<std::vector<int>>  int_matrix;
 
 
@@ -66,18 +66,21 @@ int min_pixels(const int_matrix &mat){
     for(int i=0;i<n;i++)order[i]=i;
 
     
+    BTrie tree;
 
     bool finish = false;
     while(!finish){
         //std::cout<<"TEST"<<std::endl;
-        BTrie tree;
-        //tree.clean();
+        tree.clean();
         for(int i=0; i<p;i++)
             tree.insert(mat[i],order);
         
+        #ifdef DEBUG 
         for(int i=0; i<n;i++)
             std::cout<<"##"<<tree.get_max_count(i)<<std::endl;
+        #endif
 
+        finish = true;
         for(int i=n-1;i>=0;i--){
             if(tree.get_max_count(i)==2)
                 if(!used_flag[order[i]]){
@@ -86,10 +89,10 @@ int min_pixels(const int_matrix &mat){
                     order.erase(order.begin()+i);
                     order.insert(order.begin(),tmp);
                     finish = false;
+                    break;
                 }
-                else
-                    finish =true;
         }
+        
     }
 
             

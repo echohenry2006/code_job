@@ -3,7 +3,7 @@
 #include<ctime>
 #include<vector>
 
-#include<./BTrie.cc>
+#include<BTrie.cc>
 
 #define MAX 2 
 
