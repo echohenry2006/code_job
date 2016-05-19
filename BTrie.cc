@@ -1,3 +1,6 @@
+#ifndef __TRIETREE__
+#define __TRIETREE__
+
 #include<iostream>
 #include<vector>
 #include<cassert>
@@ -20,8 +23,12 @@ class BTrie{
 		BTrie(vec v);
 		bool isEmpty();
 		void insert(const vec &v);
+		void insert(const vec &v, const vec &order);
 		void clean();
 		bool find(const vec &v);
+        int  get_max_count(int i){
+            return max_count[i];
+        }
 		~BTrie(){
 			clean();
 			delete root;
@@ -30,15 +37,20 @@ class BTrie{
 		BTrieNode* root;
 		int depth;
 		void remove(BTrieNode* p);
+        vec max_count;
 };
 
 
 BTrie::BTrie():depth(0){
-	root = new BTrieNode();
+	root = new BTrieNode(0);
+
 };
 BTrie::BTrie(vec v):root(NULL){
 	
 	depth = v.size();
+    if(max_count.size()!=depth)
+        max_count.resize(depth,0);
+
 	root = new BTrieNode();
 	insert(v);
 #ifdef DEBUG
@@ -50,21 +62,62 @@ BTrie::BTrie(vec v):root(NULL){
 void BTrie::insert(const vec &a){
 	if(depth==0)
 		depth = a.size();
+    if(max_count.size()!=depth)
+        max_count.resize(depth,0);
 	assert(depth==a.size());
 	BTrieNode* p = root; 
 	for(int i = 0 ;i< depth;i++){
 		if(a[i]==0){
 			if(p->left==NULL)
-				p->left=new BTrieNode();
+				p->left=new BTrieNode(0);
+            p->count++;
+            if((p->count)>max_count[i])
+                max_count[i]=p->count;
 			p = p->left;
+
 		}
 		else{
 			if(p->right==NULL)
 				p->right=new BTrieNode();
+            p->count++;
+            if((p->count)>max_count[i])
+                max_count[i]=p->count;
 			p = p->right;
 		}
 	}
 }
+
+void BTrie::insert(const vec &a, const vec &order){
+    std::cout<<"depth"<<depth<<std::endl;
+    std::cout<<"size"<<max_count.size()<<std::endl;
+	if(depth==0)
+		depth = a.size();
+    if(max_count.size()!=depth)
+        max_count.resize(depth,0);
+	assert(depth==a.size());
+	BTrieNode* p = root; 
+	for(int i = 0 ;i< depth;i++){
+		if(a[order[i]]==0){
+			if(p->left==NULL)
+				p->left=new BTrieNode(0);
+            p->count++;
+            if((p->count)>max_count[i])
+                max_count[i]=p->count;
+			p = p->left;
+
+		}
+		else{
+			if(p->right==NULL)
+				p->right=new BTrieNode(0);
+            p->count++;
+            if((p->count)>max_count[i])
+                max_count[i]=p->count;
+			p = p->right;
+		}
+	}
+
+}
+
 
 bool BTrie::isEmpty(){
 	return (depth==0);
@@ -75,6 +128,8 @@ void BTrie::clean(){
 	remove(root->left);
 	remove(root->right);
 	depth=0;
+    max_count.clear();
+    root->count=0;
 }
 
 void BTrie::remove(BTrieNode* p){
@@ -92,7 +147,8 @@ void BTrie::remove(BTrieNode* p){
 
 bool BTrie::find(const vec &v){
 
-				
+    if(depth==0)
+        return false;
 	assert(v.size()==depth);
 	BTrieNode* p = root; 
 	for(int i = 0 ;i< depth;i++){
@@ -112,15 +168,27 @@ bool BTrie::find(const vec &v){
 
 
 
-
+#ifdef TRIE__TEST
 
 int main(int argc , char ** argv){
-	vec v1{0,0,1,1,0,1,0,1};
+	vec v1{0,1,0};
+	vec v2{1,0,0};
+	vec v3{0,1,1};
+    
 	BTrie tree(v1);
-	vec v2{1,1,1,1,1,1,1,1};
+    tree.insert(v2);
+    tree.insert(v3);
+    
+    for(int i=0;i<v1.size();i++)
+        std::cout<<"max of " << i << " is " <<tree.get_max_count(i)<<std::endl;
+
 	if(tree.find(v1))
 		std::cout<<"find@!"<<std::endl;
 	if(tree.find(v2))
 		std::cout<<"find@!"<<std::endl;
+    tree.clean();
 	return 0;
 }
+
+#endif
+#endif
