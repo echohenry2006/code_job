@@ -140,7 +140,7 @@ void BTrie::remove(BTrieNode* &p){
 			remove(p->left);
 			remove(p->right);
 		delete p;
-        p=nullptr
+        p=nullptr;
 	}
 	return; 
 }
