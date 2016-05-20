@@ -1,7 +1,6 @@
 #include<iostream>
 #include<vector>
 #include<bitset>
-#include<algorithm>
 #include<tuple>
 //#include<cassert>
 #define MAX 100000
