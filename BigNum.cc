@@ -25,16 +25,24 @@ class BigNum{
         BigNum& operator=(const BigNum &rhs);
         BigNum& operator+=(const BigNum &rhs);
         BigNum& operator-=(const BigNum &rhs);
-        friend BigNum operator-(const BigNum &rhs);
-        friend BigNum operator+(const BigNum &rhs);
-        friend ostream& operator<<(ostream& os,const BigNum &obj);
+        BigNum& operator*=(const BigNum &rhs);
+        BigNum& operator/=(const BigNum &rhs);
+        
         friend BigNum operator+(const BigNum &lhs, const BigNum &rhs);
         friend BigNum operator-(const BigNum &lhs, const BigNum &rhs);
+        friend BigNum operator*(const BigNum &lhs, const BigNum &rhs);
+        friend BigNum operator/(const BigNum &lhs, const BigNum &rhs);
+
+        friend BigNum operator-(const BigNum &rhs);
+        friend BigNum operator+(const BigNum &rhs);
+        
+        friend ostream& operator<<(ostream& os,const BigNum &obj);
     private:
         int len;
         int sign;
         vector<int> data;
         int comp(const BigNum &rhs) const;
+        pair<int,int> divmod(const BigNum &rhs) const;
 
 };
 
@@ -242,6 +250,96 @@ BigNum& BigNum::operator+=(const BigNum &rhs){
 }
 
            
+BigNum& BigNum::operator*=(const BigNum &rhs){
+    sign*=rhs.sign;
+    // ==0
+    if(sign==0){
+        sign=0;
+        len=0;
+        data.clear();
+        data.push_back(0);
+        return *this;
+    }
+
+    vector<int> out;
+    int ln=len;
+    int rn=rhs.len;
+    for(int i=0;i<rn;i++){
+        vector<int> a;
+        int carry=0;
+        int dig=rhs.data[rn-i-1];
+        int tmp=0;
+        for(int j=0;j<ln;j++){
+            tmp=data[ln-j-1]*dig;
+            carry=tmp>10?tmp/10:0;
+            tmp=tmp>10?tmp%10:tmp;
+            a.insert(a.begin(),1,tmp);
+        }//for
+        if(carry>0)a.insert(a.begin(),1,carry);
+        for(int j=i;j>0;j--)a.push_back(0);
+        //out=out+a
+        if(out.size()==0)out=a;
+        else{
+            carry=0;
+            tmp=0;
+            vector<int> b=out;
+            int la=a.size();
+            int lb=b.size();
+            if(la<lb){
+                int k;
+                out.clear();
+                for(k=0;k<la;k++){
+                    tmp=a[la-k-1]+b[lb-k-1]+carry;
+                    carry=tmp>10?tmp/10:0;
+                    tmp=tmp>10?tmp%10:tmp;
+                    out.insert(out.begin(),1,tmp);
+                }
+                for(;k<lb;k++){
+                    tmp=b[lb-k-1]+carry;
+                    carry=tmp>10?tmp/10:0;
+                    tmp=tmp>10?tmp%10:tmp;
+                    out.insert(out.begin(),1,tmp);
+                }
+                if(carry>0)out.insert(out.begin(),1,carry);
+            }
+            else{
+                int k;
+                out.clear();
+                for(k=0;k<lb;k++){
+                    tmp=a[la-k-1]+b[lb-k-1]+carry;
+                    carry=tmp>10?tmp/10:0;
+                    tmp=tmp>10?tmp%10:tmp;
+                    out.insert(out.begin(),1,tmp);
+                }
+                for(;k<la;k++){
+                    tmp=a[la-k-1]+carry;
+                    carry=tmp>10?tmp/10:0;
+                    tmp=tmp>10?tmp%10:tmp;
+                    out.insert(out.begin(),1,tmp);
+                }
+                if(carry>0)out.insert(out.begin(),1,carry);
+            }
+        }
+    }
+    data=out;
+    len=out.size();
+    return *this;
+};
+
+
+pair<int,int> divmod(const BigNum &rhs) const{
+    pair<int,int> out;
+
+}
+
+BigNum& BigNum::operator/=(const BigNum &rhs){
+    
+}
+BigNum operator*(const BigNum &lhs, const BigNum &rhs){
+    BigNum a(lhs);
+    a*=rhs;
+    return a;
+}
 
 BigNum operator-(const BigNum &lhs, const BigNum &rhs){
     BigNum a(lhs);
@@ -259,7 +357,7 @@ int main(int argc, char** argv){
     //vector<int> aa(3,9);
     //vector<int> bb(4,1);
     //if(aa>bb)cout<<"a>b"<<endl;
-    BigNum a("111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
+    BigNum a("1111");
     BigNum b("-0999");
     //cout<<-b<<endl;
     //if(a<(-b))
@@ -268,6 +366,7 @@ int main(int argc, char** argv){
     cout<<b<<endl;
     cout<<a+b<<endl;
     cout<<a-b<<endl;
+    cout<<a*b<<endl;
     return 0;
 }
 
