@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1466069157 source:e:\kaggle\code\cpp\leetcode\codeblocks\test\main.cpp
+	<iostream>
+	<vector>
+	<bitset>
+
