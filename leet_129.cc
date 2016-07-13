@@ -36,7 +36,6 @@ void destroyTree(TreeNode* root) {
     delete root;
 };
 
-vector<int> data = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
 void createTree(vector<int> &data, TreeNode* &root) {
     assert(root == NULL);
     root = new TreeNode(data[0]);
@@ -63,10 +62,42 @@ void createTree(vector<int> &data, TreeNode* &root) {
 
 class Solution {
   public:
+      int sum;
+      int sumNumbers(TreeNode* root){
+        sum=0;
+        dfs(0,root);
+        return sum;
+      }
+
+      void dfs(int curSum, TreeNode* root){
+        int newSum=curSum*10+root->val;
+        if(root->left){
+            dfs(newSum,root->left);
+        }
+        if(root->right){
+            dfs(newSum,root->right);
+        }
+        if(!root->left && !root->right)
+            sum+=newSum;
+        return ;
+
+      }
 };
 
 
 int main(int argc , char** argv) {
+    TreeNode* root=NULL;
+    /* vector<int> data = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }; */
+    vector<int> data = { 1, 2, 3 };
+    createTree(data,root);
+    cout<<"tree created!!"<<endl;
+
+    Solution sol;
+    cout<<sol.sumNumbers(root)<<endl;
+    
+    cout<<"hello world!!"<<endl;
+    destroyTree(root);
+    return 0;
 }
 
 

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)http://cn2016summer2.contest.atcoder.jp/tasks/indeed_intern_2016_d -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>D: 色付きボール/Colored Balls
+ - cn2016summer2 | AtCoder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="
+">
+    <meta name="keyword" content="AtCoder,アットコーダー,あっとこーだー,プログラミングコンテスト
+">
+    <meta name="author" content="Atcoder">
+    <meta name="copyright" content="Copyright (C) 2012 Atcoder">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" type="text/css" href="./D_ 色付きボール_Colored Balls - cn2016summer2 _ AtCoder_files/all.css">
+    <link rel="stylesheet" type="text/css" href="./D_ 色付きボール_Colored Balls - cn2016summer2 _ AtCoder_files/print.css" media="print">
+        <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" async="" src="./D_ 色付きボール_Colored Balls - cn2016summer2 _ AtCoder_files/ga.js"></script><script src="./D_ 色付きボール_Colored Balls - cn2016summer2 _ AtCoder_files/jquery.js"></script>
+    <link rel="shortcut icon" href="http://cn2016summer2.contest.atcoder.jp/img/favicon.ico">
+
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30554866-3']);
+  _gaq.push(['_setDomainName', 'atcoder.jp']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>    
+    <!--[if lt IE 9]><style>.navbar-fixed-top{ position: relative!important; }</style><![endif]-->
+
+  </head>
+
+
+  <body>
+            <style type="text/css">
+          html body {
+    background-color: #fffffa !important;
+    background-image:  none !important;
+}
+#outer-inner {
+    background: none repeat scroll 0 0 #ffffff;
+}
+.navbar-inner {
+    background-color: #db0079 !important;
+    background-image: none !important;
+}
+
+.caret {
+    color: #fff !important;
+    opacity: 1 !important;
+}
+
+.bland-small {
+    color: #fff !important;
+}
+
+.navbar .divider-vertical {
+    background-color: #fff !important;
+    border-right: none;
+}
+
+.navbar .nav > li > a {
+    color: #fff !important;
+}
+
+.insert-participant-box {
+    background-color: #fff !important;
+    text-align: -webkit-center !important;
+}
+
+.insert-participant-box h1{
+    font-size: 280%;
+}
+
+.container   {
+    width: 940px;
+}
+
+.offset1{
+    margin-left: auto;
+}
+
+.fixed-menu {
+    width: 180px;
+}
+#contest-statement section ul {
+    font-size: small;
+}
+
+      </style>
+          <div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+              <a class="brand" href="http://cn2016summer2.contest.atcoder.jp/"><span class="contest-name">cn2016summer2</span><span class="bland-small"><time class="timezone-fixed">2016/07/02 19:00:00</time> ~ <time class="timezone-fixed">2016/07/02 21:00:00</time></span></a>
+      
+      <div class="nav-collapse">
+                            <ul id="nav-right-logined" class="nav pull-right">
+            <li class="dropdown">
+              <a href="http://cn2016summer2.contest.atcoder.jp/tasks/indeed_intern_2016_d#" lang="ja" class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown" style="display:none;">
+                <i class="flag-ja"></i> 日本語 <b class="caret"></b>
+              </a>
+              <a href="http://cn2016summer2.contest.atcoder.jp/tasks/indeed_intern_2016_d#" lang="en" class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown">
+                <i class="flag-en"></i> English <b class="caret"></b>
+              </a>
+              <a href="http://cn2016summer2.contest.atcoder.jp/tasks/indeed_intern_2016_d#" lang="ko" class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown" style="display:none;">
+                <i class="flag-ko"></i> 한국어 <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li> <a lang="ja" class="static-nav-language-selector" href="http://cn2016summer2.contest.atcoder.jp/tasks/indeed_intern_2016_d#"><i class="flag-ja"></i> 日本語</a></li>
+                <li> <a lang="en" class="static-nav-language-selector" href="http://cn2016summer2.contest.atcoder.jp/tasks/indeed_intern_2016_d#"><i class="flag-en"></i> English</a></li>
+                <li> <a lang="ko" class="static-nav-language-selector" href="http://cn2016summer2.contest.atcoder.jp/tasks/indeed_intern_2016_d#"><i class="flag-ko"></i> 한국어</a></li>
+              </ul>
+            </li>
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="http://cn2016summer2.contest.atcoder.jp/tasks/indeed_intern_2016_d#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog icon-white"></i> <span id="nav-right-username">cn16sp2860l(contestant)</span><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="http://cn2016summer2.contest.atcoder.jp/me">マイプロフィール</a></li>
+                                	<li><a href="http://cn2016summer2.contest.atcoder.jp/settings"><span class="lang lang-selected"><span class="lang-en lang-child">Settings</span><span class="lang-ja lang-child hidden-lang">設定</span></span></a></li>
+                	                	<li><a href="http://cn2016summer2.contest.atcoder.jp/settings/password"><span class="lang lang-selected"><span class="lang-en lang-child">Change password</span><span class="lang-ja lang-child hidden-lang">パスワードの変更</span></span></a></li>
+                	<li class="divider"></li>
+                                <li><a href="http://cn2016summer2.contest.atcoder.jp/logout"><span class="lang lang-selected"><span class="lang-en lang-child">Sign out</span><span class="lang-ja lang-child hidden-lang">ログアウト</span></span></a></li>
+             </ul>
+            </li>
+          </ul>
+          <ul id="nav-right-not-login" class="nav pull-right" style="display:none;">
+            <li class="dropdown">
+              <a href="http://cn2016summer2.contest.atcoder.jp/tasks/indeed_intern_2016_d#" lang="ja" class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown" style="display:none;">
+                <i class="flag-ja"></i> 日本語 <b class="caret"></b>
+              </a>
+              <a href="http://cn2016summer2.contest.atcoder.jp/tasks/indeed_intern_2016_d#" lang="en" class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown">
+                <i class="flag-en"></i> English <b class="caret"></b>
+              </a>
+              <a href="http://cn2016summer2.contest.atcoder.jp/tasks/indeed_intern_2016_d#" lang="ko" class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown" style="display:none;">
+                <i class="flag-ko"></i> 한국어 <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li> <a lang="ja" class="static-nav-language-selector" href="http://cn2016summer2.contest.atcoder.jp/tasks/indeed_intern_2016_d#"><i class="flag-ja"></i> 日本語</a></li>
+                <li> <a lang="en" class="static-nav-language-selector" href="http://cn2016summer2.contest.atcoder.jp/tasks/indeed_intern_2016_d#"><i class="flag-en"></i> English</a></li>
+                <li> <a lang="ko" class="static-nav-language-selector" href="http://cn2016summer2.contest.atcoder.jp/tasks/indeed_intern_2016_d#"><i class="flag-ko"></i> 한국어</a></li>
+              </ul>
+            </li>
+                        <li class="divider-vertical"></li>
+            <li><a href="http://cn2016summer2.contest.atcoder.jp/register"><span class="lang lang-selected"><span class="lang-en lang-child">Sign up</span><span class="lang-ja lang-child hidden-lang">新規登録</span></span></a></li>
+                        <li class="divider-vertical"></li>
+            <li><a href="http://cn2016summer2.contest.atcoder.jp/login"><span class="lang lang-selected"><span class="lang-en lang-child">Sign in</span><span class="lang-ja lang-child hidden-lang">ログイン</span></span></a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="modal hide fade" style="display:none;" id="modal-contest-end">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3><span class="lang lang-selected"><span class="lang-en lang-child">cn2016summer2 has ended</span><span class="lang-ja lang-child hidden-lang">cn2016summer2が終了しました</span></span></h3>
+  </div>
+  <div class="modal-body">
+    <p><span class="lang lang-selected"><span class="lang-en lang-child">Contest has ended</span><span class="lang-ja lang-child hidden-lang">コンテスト終了です</span></span></p>
+  </div>
+  <div class="modal-footer">
+    <a href="http://cn2016summer2.contest.atcoder.jp/tasks/indeed_intern_2016_d#" class="btn" data-dismiss="modal"><span class="lang lang-selected"><span class="lang-en lang-child">Close</span><span class="lang-ja lang-child hidden-lang">閉じる</span></span></a>
+  </div>
+</div>
+
+<div class="modal hide fade" style="display:none;" id="modal-contest-begin">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3><span class="lang lang-selected"><span class="lang-en lang-child">cn2016summer2 is now opening</span><span class="lang-ja lang-child hidden-lang">cn2016summer2の開催時間になりました</span></span></h3>
+  </div>
+  <div class="modal-body">
+    <p><span class="lang lang-selected"><span class="lang-en lang-child">Contest has started</span><span class="lang-ja lang-child hidden-lang">問題一覧のページへ移動してください</span></span></p>
+  </div>
+  <div class="modal-footer">
+    <a href="http://cn2016summer2.contest.atcoder.jp/assignments" class="btn btn-primary"><span class="lang lang-selected"><span class="lang-en lang-child">Go to the task list page</span><span class="lang-ja lang-child hidden-lang">問題一覧のページへ移動</span></span></a>
+  </div>
+</div>
+    
+    <div id="outer-inner" class="container">
+      <h1 class="site-title">
+          cn2016summer2
+      </h1>
+                      <time style="display:none" id="contest-start-time" class="timezone-fixed">2016/07/02 19:00:00</time>
+        <time style="display:none" id="contest-end-time" class="timezone-fixed">2016/07/02 21:00:00</time>
+        <time style="display:none" id="server-current-time" class="timezone-fixed">2016/07/02 20:51:29</time>
+
+            
+      <ul class="nav nav-tabs">
+                            <li><a href="http://cn2016summer2.contest.atcoder.jp/"><i class="icon-home"></i> <span class="lang lang-selected"><span class="lang-en lang-child">Home</span><span class="lang-ja lang-child hidden-lang">トップページ</span><span class="lang-ko lang-child hidden-lang">톱 페이지</span></span></a></li>
+                                          <li class="active"><a href="http://cn2016summer2.contest.atcoder.jp/assignments"><i class="icon-list-alt"></i> <span class="lang lang-selected"><span class="lang-en lang-child">Tasks</span><span class="lang-ja lang-child hidden-lang">問題</span><span class="lang-ko lang-child hidden-lang">문제</span></span></a></li>
+                                          <li><a href="https://cn2016summer2.contest.atcoder.jp/submit"><i class="icon-upload"></i> <span class="lang lang-selected"><span class="lang-en lang-child">Submit</span><span class="lang-ja lang-child hidden-lang">提出</span><span class="lang-ko lang-child hidden-lang">제출</span></span></a></li>
+                                          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="http://cn2016summer2.contest.atcoder.jp/tasks/indeed_intern_2016_d#">
+              <b class="caret"></b><i class="icon-download-alt"></i> <span class="lang lang-selected"><span class="lang-en lang-child">Results</span><span class="lang-ja lang-child hidden-lang">結果</span><span class="lang-ko lang-child hidden-lang">채점 결과</span></span>
+            </a>
+            <ul class="dropdown-menu">
+                              <li><a href="https://cn2016summer2.contest.atcoder.jp/submissions/me"><span class="lang lang-selected"><span class="lang-en lang-child">My submissions</span><span class="lang-ja lang-child hidden-lang">自分の結果</span><span class="lang-ko lang-child hidden-lang">자신의 결과</span></span></a></li>
+                          </ul>
+          </li>
+                      </ul>
+        <div id="alert_box" class="alert alert-block" style="display:none">
+  <a class="close" data-dismiss="alert">×</a>
+  <h4 id="alert_box_heading" class="alert-heading" style="display:none"></h4>
+  <p id="alert_box_content"></p>
+</div>
+
+      <h2>D - 色付きボール/Colored Balls</h2>
+<hr>
+<p><span class="lang lang-selected"><span class="lang-en lang-child">Time limit</span><span class="lang-ja lang-child hidden-lang">時間制限</span></span> : 2sec / <span class="lang lang-selected"><span class="lang-en lang-child">Stack limit</span><span class="lang-ja lang-child hidden-lang">スタック制限</span></span> : 256MB / <span class="lang lang-selected"><span class="lang-en lang-child">Memory limit</span><span class="lang-ja lang-child hidden-lang">メモリ制限</span></span> : 256MB</p>
+
+<div id="task-statement">
+  <span class="lang lang-selected">
+    <span class="lang-ja lang-child hidden-lang">
+        <div class="part">
+            <section>
+                <h3>問題文</h3>
+                箱の中にボールがいくつか入っています。
+                ボールの色は <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>K</i></span></var> 種類あり、<var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>i</i></span></var> 番目の色のボールは <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>a</i><sub style="font-size:65%"><i>i</i></sub></span></var> 個入っています。
+
+                高橋君は、次の操作を繰り返すことにしました。
+
+                <ul>
+                    <li>箱からボールを一個ランダムに等確率で取り出す。</li>
+                    <li>出したボールの色を確認する。</li>
+                    <li>取り出したボールを箱の中に戻す。</li>
+                </ul>
+
+                高橋君がすべての種類の色のボールを見るまでにボールを取り出す回数の期待値を求めてください。
+
+            </section>
+
+            <section>
+                <h3>制約</h3>
+                <ul>
+                    <li><var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">1<span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span><i>K</i><span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span>10</span></var></li>
+                    <li><var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">1<span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span><i>a</i><sub style="font-size:65%"><i>i</i></sub><span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span>1000</span></var></li>
+                </ul>
+            </section>
+            <hr>
+
+            <section>
+                <h3>部分点</h3>
+                <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">30</span></var> 点分のテストケースでは <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>K</i><span style="padding:0.25ex;"></span>=<span style="padding:0.25ex;"></span>2</span></var> をみたす。
+            </section>
+            <hr>
+
+            <div class="io-style">
+
+                <section>
+                    <h3>入力</h3>
+                    <p>入力は以下の形式で標準入力から与えられる。</p>
+<pre><var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>K</i></span></var>
+<var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>a</i><sub style="font-size:65%">1</sub></span></var> <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">…</span></var> <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>a</i><sub style="font-size:65%"><i>K</i></sub></span></var>
+</pre>
+                </section>
+
+                <section>
+                    <h3>出力</h3>
+                    高橋君がすべての種類の色のボールを見るまでにボールを取り出す回数の期待値を出力せよ。
+                    出力の絶対誤差または相対誤差が <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">10<sup style="font-size:65%">−6</sup></span></var> 以下の時正解となる。
+                </section>
+
+            </div>
+
+            <hr>
+
+            <section>
+                <h3>入力例1</h3>
+<pre>2
+5 10
+</pre>
+            </section>
+
+            <section>
+                <h3>出力例1</h3>
+<pre>3.500000000
+</pre>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3>入力例2</h3>
+<pre>10
+3 6 4 2 5 6 8 3 1 6
+</pre>
+            </section>
+
+            <section>
+                <h3>出力例2</h3>
+<pre>56.727155406
+</pre>
+            </section>
+        </div>
+    </span>
+    <span class="lang-en lang-child">
+        <div class="part">
+            <section>
+                <h3>Question</h3>
+                There are a number of balls in a box. There are <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>K</i></span></var> different colors of balls. There are ai balls of the color <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>i</i></span></var>. Mr. Takahashi repeats the following procedure:
+                <ul>
+                    <li>
+                        Pick up one ball from the box randomly with equal probability.
+                    </li>
+                    <li>
+                        Identify the color of the ball.
+                    </li>
+                    <li>
+                        Return the ball to the box.
+                    </li>
+                </ul>
+                Calculate the expected number of times Mr. Takahashi will pick up a ball from the box before identifying all of the colors of balls in the box.
+            </section>
+
+            <section>
+                <h3>Constrains</h3>
+                <ul>
+                    <li><var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">1<span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span><i>K</i><span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span>10</span></var></li>
+                    <li><var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">1<span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span><i>a</i><sub style="font-size:65%"><i>i</i></sub><span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span>1000</span></var></li>
+                </ul>
+            </section>
+            <hr>
+
+            <section>
+                <h3>Partial Credit</h3>
+                <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">30</span></var> points will be given to test cases satisfying <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>K</i><span style="padding:0.25ex;"></span>=<span style="padding:0.25ex;"></span>2</span></var>.
+            </section>
+            <hr>
+
+            <div class="io-style">
+
+                <section>
+                    <h3>Input</h3>
+                    <p>Inputs are provided from standard inputs in the following form.</p>
+<pre><var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>K</i></span></var>
+<var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>a</i><sub style="font-size:65%">1</sub></span></var> <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">…</span></var> <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>a</i><sub style="font-size:65%"><i>K</i></sub></span></var>
+</pre>
+                </section>
+
+                <section>
+                    <h3>Output</h3>
+                    Output the expected number of times Mr. Takahashi will pick up a ball from the box before identifying all of the colors of balls. Outputs with an absolute or relative error of at most <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">10<sup style="font-size:65%">−6</sup></span></var> will be considered correct.
+                </section>
+
+            </div>
+
+            <hr>
+
+            <section>
+                <h3>Input Example #1</h3>
+<pre>2
+5 10
+</pre>
+            </section>
+
+            <section>
+                <h3>Output Example #1</h3>
+<pre>3.500000000
+</pre>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3>Input Example #2</h3>
+<pre>10
+3 6 4 2 5 6 8 3 1 6
+</pre>
+            </section>
+
+            <section>
+                <h3>Output Example #2</h3>
+<pre>56.727155406
+</pre>
+            </section>
+        </div>
+    </span>
+</span>
+</div>
+
+
+<hr>
+<p><a class="btn btn-primary btn-large" href="http://cn2016summer2.contest.atcoder.jp/submit?task_id=1862"><span class="lang lang-selected"><span class="lang-en lang-child">Submit</span><span class="lang-ja lang-child hidden-lang">提出する</span></span></a></p>
+
+    </div>
+
+    <footer>
+        <div id="atcoder-default-lang" style="display: none;" data-lang="en"></div>
+<ul>
+  <li><a href="http://cn2016summer2.contest.atcoder.jp/tutorial"><span class="lang lang-selected"><span class="lang-en lang-child">Tutorial</span><span class="lang-ja lang-child hidden-lang">チュートリアル</span></span></a></li>
+  <li><a href="http://cn2016summer2.contest.atcoder.jp/rules"><span class="lang lang-selected"><span class="lang-en lang-child">Rules</span><span class="lang-ja lang-child hidden-lang">ルール</span></span></a></li>
+  <li><a href="http://cn2016summer2.contest.atcoder.jp/glossary"><span class="lang lang-selected"><span class="lang-en lang-child">Glossary</span><span class="lang-ja lang-child hidden-lang">用語集</span></span></a></li>
+  <li><a href="http://cn2016summer2.contest.atcoder.jp/faq"><span class="lang lang-selected"><span class="lang-en lang-child">FAQ</span><span class="lang-ja lang-child hidden-lang">よくある質問</span></span></a></li>
+</ul>
+<p id="copyright">Powered by <a href="http://atcoder.jp/">AtCoder.</a></p>
+    </footer>
+
+    <p id="fixed-server-timer">Remain<br>00:08:28</p>
+
+        <script src="./D_ 色付きボール_Colored Balls - cn2016summer2 _ AtCoder_files/bootstrap.min.js"></script>
+    <script src="./D_ 色付きボール_Colored Balls - cn2016summer2 _ AtCoder_files/prettify.js"></script>
+    <script src="./D_ 色付きボール_Colored Balls - cn2016summer2 _ AtCoder_files/lang-vb.js"></script>
+    <script src="./D_ 色付きボール_Colored Balls - cn2016summer2 _ AtCoder_files/lang-hs.js"></script>
+    <script src="./D_ 色付きボール_Colored Balls - cn2016summer2 _ AtCoder_files/varmath.js"></script>
+    <script src="./D_ 色付きボール_Colored Balls - cn2016summer2 _ AtCoder_files/script.js"></script>
+  
+
+</body></html>
