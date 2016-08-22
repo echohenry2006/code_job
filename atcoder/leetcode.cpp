@@ -36,6 +36,7 @@ void destroyTree(TreeNode* root) {
     delete root;
 };
 
+vector<int> data = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
 void createTree(vector<int> &data, TreeNode* &root) {
     assert(root == NULL);
     root = new TreeNode(data[0]);
@@ -62,51 +63,10 @@ void createTree(vector<int> &data, TreeNode* &root) {
 
 class Solution {
   public:
-    int maxPathSum(TreeNode* root) {
-        if(!root) return 0;
-        int maxleft = 0;
-        int maxright = 0;
-        int maxsum = root->val;
-        dfs(root, maxleft, maxright, maxsum);
-        return maxsum;
-    };
-    void dfs(TreeNode* root, int &maxleft , int &maxright, int &maxsum) {
-        if(!root) {
-            maxleft = 0;
-            maxright = 0;
-            return ;
-        }
-        dfs(root->left, maxleft, maxright, maxsum);
-        int tmp;
-        tmp=max(maxleft, maxright);
-        int mleft = tmp<0? root->val: root->val + tmp ;
-        dfs(root->right, maxleft, maxright, maxsum);
-        tmp=max(maxleft, maxright);
-        int mright = tmp<0? root->val: root->val + tmp ;
-        maxleft = mleft;
-        maxright = mright;
-        tmp = mleft + mright - root->val;
-        if(tmp > maxsum)
-            maxsum = tmp;
-        if(mleft > maxsum)
-            maxsum = mleft;
-        if(mright > maxsum)
-            maxsum = mright;
-        return ;
-    }
 };
 
 
 int main(int argc , char** argv) {
-    vector<int> data = { -3 };
-    TreeNode* root = NULL;
-    createTree(data, root);
-    Solution sol;
-    int maxsum = sol.maxPathSum(root);
-    cout << "max is " << maxsum << endl;
-    destroyTree(root);
-    return 0;
 }
-
 
 
